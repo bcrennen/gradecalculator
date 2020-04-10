@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>MainPage_AfterLogin</title>
+  <link rel="stylesheet" href="style/CalTable.css">
+</head>
+
+<body>
+  <!------------------BOOTSTRAP---------------------------->
+  <!-- The Title -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="HomePage_NoLogin.html" class="navbar-brand">
+      <h1>Grade Calculator</h1>
+    </a>
+
+    <!--Mobile Dropdown-->
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--All User Stuff below-->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ml-auto ">
+        <a href="#" class="nav-item nav-link ">User Name</a>
+        <a onclick="logout()" class="nav-item nav-link ">Logout</a>
+
+
+      </div>
+    </div>
+  </nav>
+  <!------------------------TABS---------------------------------->
+  <nav>
+    <!--New folder/tabs are here-->
+    <div class="nav nav-tabs" id="courseTab" role="tablist">
+
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+        aria-controls="nav-home" aria-selected="true">Test1</a>
+
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+        aria-controls="nav-profile" aria-selected="false">Test2</a>
+
+      <!-- add a new folder button-->
+      <a class="nav-item nav-link" id="nav-add-tab" href="#nav-add" role="tab" aria-controls="nav-add"
+        aria-selected="false">
+        <!--button trigger-->
+        <button type="button" class="btn btn-primary" data-toggle="modal"
+          data-target="#NewFolderCenter"><b>+</b></button>
+
+      </a>
+    </div>
+  </nav>
+
+  <!-------------------------------- The actual Folders/tabs here----------------------------------------------------->
+  <div class="tab-content" id="courseFolder">
+
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"></div>
+
+    <!---------------------------------------------- For test 2-------------------------------------------->
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+      <!-- 1) Assignments, Quiz and Test-->
+      <div class="row">
+        <!-- The Pill-->
+        <div class="col-auto">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+            <a class="nav-link active" id="v-pills-assignment-tab" data-toggle="pill" href="#v-pills-assignment"
+              role="tab" aria-controls="v-pills-assignment" aria-selected="true">Assignment</a>
+            <a class="nav-link" id="v-pills-quiz-tab" data-toggle="pill" href="#v-pills-quiz" role="tab"
+              aria-controls="v-pills-quiz" aria-selected="true">Quiz</a>
+            <a class="nav-link" id="v-pills-test-tab" data-toggle="pill" href="#v-test-home" role="tab"
+              aria-controls="v-pills-test" aria-selected="true">Test</a>
+
+          </div>
+        </div>
+        <!-- The Pill-->
+
+        <!-- 2) Assignments, Quiz and Test INSIDES-->
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-assignment" role="tabpanel"
+              aria-labelledby="v-pills-assignment-tab">
+
+              <!-- put content here-->
+
+              <!--Calculator-->
+              <div class="container" id="calculatorNoLogin">
+
+                <div class="row">
+                  <!--calculate button-->
+                  <div class="col-auto col-md-6 col-4"><button type="button" class="btn btn-primary"
+                      onclick="savePercentage()">Calculate</button>
+                  </div>
+                  <div class="total col-md-2 col-4" id="totalNoLogin"></div>
+                </div>
+
+                <div class="row">
+
+                  <div class="calculator col-12 col-md-8"></div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-quiz" role="tabpanel" aria-labelledby="v-pills-quiz-tab"></div>
+            <div class="tab-pane fade" id="v-pills-test" role="tabpanel" aria-labelledby="v-pills-test-tab"></div>
+          </div>
+
+
+        </div>
+        <!--Assignments, Quiz and Test INSIDES END-->
+      </div>
+
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------------Prompt--------------------------------->
+
+  <!-- Modal -->
+  <div class="modal fade" id="NewFolderCenter" tabindex="-1" role="dialog" aria-labelledby="NewFolderCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="NewFolderCenterTitle">Create a New Folder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--New Folder Form Here-->
+          <form>
+            <div class="form-group">
+              <label for="TypeOfCourse">What's the name of the course?</label>
+              <input type="email" class="form-control" id="TypeOfCourse" aria-describedby="courseExample">
+              <small id="courseExample" class="form-text text-muted">examples: Math, English, Science</small>
+            </div>
+          </form>
+          <!--New Folder Form End-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createFolder(); saveData()">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------------------------Prompt End--------------------------------->
+
+
+  <!-- ---------------------------Optional JavaScript----------------------------- -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!---------------------------------------------------------->
+
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="scripts/firebase_api_brennen.js"> </script>
+  <script src="scripts/finalgradescript.js"></script>
+  <script src="scripts/GenerateTable.js"></script>
+
+  <script>
+    // Create an calculator object
+    let calNoLogin = new CalculatorTable();
+    // generate the headings for the calculator table
+    calNoLogin.genHead();
+    calNoLogin.addButton();
+
+
+    let total = new Total();
+  </script>
+
+</body>
+
+</html>

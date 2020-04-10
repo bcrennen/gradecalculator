@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>MainPage_Login</title>
+
+  <!-------------------------------Our CSS-------------------------------->
+  <link rel="stylesheet" href="style/CalTable.css">
+</head>
+
+<body>
+
+  <!------------------The Heading of the Website---------------------------->
+  <!-- The Title -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark row">
+    <a href="MainPage_NoLogin.html" class="navbar-brand">
+      <h1>Grade Calculator</h1>
+    </a>
+
+    <!--Mobile Dropdown-->
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ml-auto">
+        <a href="login.html" class="nav-item nav-link">
+          <h3>Login</h3>
+        </a>
+        <!--can change # to website-->
+      </div>
+    </div>
+
+  </nav>
+  <!-------------------The Heading of the Website END----------------------------->
+
+  <!--Calculator-->
+  <div class="container" id="calculatorNoLogin">
+
+    <div class="row">
+      <!--calculate button-->
+      <div class="col-auto col-md-6 col-4"><button type="button" class="btn btn-primary"
+          onclick="findTotal()">Calculate</button>
+      </div>
+      <div class="total col-md-2 col-4" id="totalNoLogin"></div>
+    </div>
+
+    <div class="row">
+
+      <div class="calculator col-12 col-md-8"></div>
+
+    </div>
+  </div>
+  <!--Calculator-->
+
+
+
+  <!-- ---------------------------Optional JavaScript----------------------------- -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-------------------------------------------Firebase------------------------------->
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="scripts/firebase_api_brennen.js"> </script>
+
+  <!---------------------------------Our Scripts-------------------------------------------->
+
+  <script src="scripts/GenerateTable.js"></script>
+
+  <script>
+    // Create an calculator object
+    let calNoLogin = new CalculatorTable();
+    // generate the headings for the calculator table
+    calNoLogin.genHead();
+    calNoLogin.addButton();
+
+
+    let total = new Total();
+  </script>
+
+
+</body>
+
+</html>
